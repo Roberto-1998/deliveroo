@@ -79,24 +79,6 @@ const HomeScreen = () => {
         {featuredCategories.map((cat) => (
           <FeaturedRow key={cat._id} id={cat._id} title={cat.name} description={cat.short_description} />
         ))}
-        {/*   <FeaturedRow
-          id='123'
-          title='Featured'
-          description='Paid placements from our partners'
-          featuredCategory='featured'
-        />
-        <FeaturedRow
-          id='1234'
-          title='Tasty Discounts'
-          description="Everyone's been enjoying these juicy discounts!"
-          featuredCategory='discounts'
-        />
-        <FeaturedRow
-          id='12345'
-          title='Offers near you!'
-          description='Why not support your local restaurants tonight!'
-          featuredCategory='offers'
-        /> */}
       </ScrollView>
     </SafeAreaView>
   );
