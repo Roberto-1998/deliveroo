@@ -10,13 +10,21 @@ import { ArrowLeftIcon, MapPinIcon, StarIcon } from 'react-native-heroicons/soli
 import { ChevronRightIcon, QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
 import DishRow from '../components/DishRow';
 import BasketIcon from '../components/BasketIcon';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setRestaurant } from '../features/restaurantSlice';
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const {
     params: { id, imgUrl, title, rating, genre, address, short_description, dishes, long, lat },
   } = useRoute();
+
+  useEffect(() => {
+    dispatch(setRestaurant({ id, imgUrl, title, rating, genre, address, short_description, dishes, long, lat }));
+  }, []);
 
   useLayoutEffect(() => {
     navigation.setOptions({
