@@ -1,22 +1,11 @@
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import React from 'react';
 import CategoryCard from './CategoryCard';
-import sanityClient, { urlFor } from '../sanity';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { urlFor } from '../sanity';
+import { useCategories } from '../hooks/useCategories';
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `
-    *[_type=='category']
-    `
-      )
-      .then((data) => setCategories(data));
-  }, []);
+  const { categories } = useCategories();
 
   return (
     <ScrollView

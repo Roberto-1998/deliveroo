@@ -1,7 +1,5 @@
-import { View, Text } from 'react-native';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import * as Progress from 'react-native-progress';
 import { useEffect } from 'react';
@@ -18,8 +16,6 @@ const PreparingOrderScreen = () => {
 
   return (
     <SafeAreaView className='bg-[#00CCBB] flex-1 justify-center items-center '>
-      {/*  */}
-      {/* <Image source={require('../assets/delivery.gif')} className='w-full h-46' /> */}
       <Animatable.Image
         source={require('../assets/delivery.gif')}
         animation={'slideInUp'}

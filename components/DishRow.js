@@ -1,14 +1,10 @@
-import { View, Text } from 'react-native';
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from 'react';
 import Currency from 'react-currency-formatter';
 import { urlFor } from '../sanity';
-import { Image } from 'react-native';
-import { MinusCircleIcon } from 'react-native-heroicons/solid';
-import { useState } from 'react';
-import { PlusCircleIcon } from 'react-native-heroicons/solid';
+import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/solid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToBasket, removeFromBasket, selectBasketItems, selectBasketItemsWithId } from '../features/basketSlice';
+import { addToBasket, removeFromBasket, selectBasketItemsWithId } from '../features/basketSlice';
 
 const DishRow = ({ id, description, price, image, name }) => {
   const [isPress, setIsPress] = useState(false);

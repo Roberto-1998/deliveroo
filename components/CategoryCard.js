@@ -1,6 +1,5 @@
-import { View, Text, Image } from 'react-native';
+import { Text, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
 
 const CategoryCard = ({ imgUrl, title }) => {
   return (

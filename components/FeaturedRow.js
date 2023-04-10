@@ -1,32 +1,11 @@
-import { View, Text } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { ScrollView, View, Text } from 'react-native';
+import React from 'react';
 import { ArrowRightIcon } from 'react-native-heroicons/outline';
-import { ScrollView } from 'react-native';
 import RestaurantCard from './RestaurantCard';
-import sanityClient from '../sanity';
+import { useRestaurants } from '../hooks/useRestaurants';
 
 const FeaturedRow = ({ id, title, description }) => {
-  const [restaurants, setRestaurants] = useState([]);
-
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `
-    *[_type =="featured" && _id == $id]{
-      ...,
-      restaurants[]->{
-        ...,
-        dishes[]->,
-        type->{
-          name
-        }
-      },
-    }[0]
-    `,
-        { id }
-      )
-      .then((data) => setRestaurants(data?.restaurants));
-  }, []);
+  const { restaurants } = useRestaurants(id);
 
   return (
     <View className='bg-gray-50'>

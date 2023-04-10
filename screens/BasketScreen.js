@@ -1,16 +1,10 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView } from 'react-native';
+import React, { useMemo, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRestaurant } from '../features/restaurantSlice';
 import { removeFromBasket, selectBasketItems, selectBasketTotal } from '../features/basketSlice';
-import { useMemo } from 'react';
-import { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { TouchableOpacity } from 'react-native';
 import { XCircleIcon } from 'react-native-heroicons/solid';
-import { Image } from 'react-native';
-import { ScrollView } from 'react-native';
 import { urlFor } from '../sanity';
 import Currency from 'react-currency-formatter';
 

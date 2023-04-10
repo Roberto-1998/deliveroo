@@ -1,18 +1,12 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
+import React, { useLayoutEffect, useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { useLayoutEffect } from 'react';
-import { ScrollView } from 'react-native';
 import { urlFor } from '../sanity';
-import { Image } from 'react-native';
-import { TouchableOpacity } from 'react-native';
 import { ArrowLeftIcon, MapPinIcon, StarIcon } from 'react-native-heroicons/solid';
 import { ChevronRightIcon, QuestionMarkCircleIcon } from 'react-native-heroicons/outline';
-import DishRow from '../components/DishRow';
-import BasketIcon from '../components/BasketIcon';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setRestaurant } from '../features/restaurantSlice';
+import { BasketIcon, DishRowList } from '../components';
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -70,16 +64,7 @@ const RestaurantScreen = () => {
             <Text className='px-4 pt-5 mb-3 font-bold text-xl'>Menu</Text>
 
             {/* Dishrows */}
-            {dishes.map((dish) => (
-              <DishRow
-                key={dish._id}
-                id={dish._id}
-                name={dish.name}
-                description={dish.short_description}
-                price={dish.price}
-                image={dish.image}
-              />
-            ))}
+            <DishRowList dishes={dishes} />
           </View>
         </View>
       </ScrollView>
